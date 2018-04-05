@@ -9,7 +9,7 @@ object Example_DataLoading {
 
 
 
-    var staticUrl = "jdbc:oracle://192.168.110.111:1521/orcl"
+    var staticUrl = "jdbc:oracle:@192.168.110.111:1521/orcl"
     var staticUser = "kopo"
     var staticPw = "kopo"
     var selloutDb = "kopo_channel_seasonality_ex"
