@@ -20,12 +20,14 @@ object Example_Join {
     option("header", "true").
     load(dataPath + subData)
 
-  mainDataDf.createOrReplaceTempView("mainData")
-  subDataDf.createOrReplaceTempView("subData")
+  mainDataDf.createOrReplaceTempView("mainTable")
+  subDataDf.createOrReplaceTempView("subTable")
 
-  var leftJoinData = spark.sql("select a.*, b.productname " +
-    "from maindata a left outer join subdata b " +
-    "on a.productgroup = b.productid")
+
+
+spark.sql("select a.regionid, a.productgroup, b.productname, a.yearweek, a.qty " +
+ "from mainData a " + "inner join subData b " +
+"on a.productgroup = b.productid")
 
 
 
