@@ -23,6 +23,11 @@ object Example_Join {
   mainDataDf.createOrReplaceTempView("mainData")
   subDataDf.createOrReplaceTempView("subData")
 
+  var leftJoinData = spark.sql("select a.*, b.productname " +
+    "from maindata a left outer join subdata b " +
+    "on a.productgroup = b.productid")
+
+
 
 
 
