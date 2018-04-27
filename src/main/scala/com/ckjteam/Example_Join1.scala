@@ -33,13 +33,13 @@ object Example_Join1 {
   selloutDataFromPg.createOrReplaceTempView("selloutTable")
   selloutDataFromPg.show(2)
 
-   //left join      없는 데이터도 일단 묶고 나중에 처리하는 것
+   //left join      A는 그대로 다 살리고 정보가 있는 것만 조인 없는 것은 빈값
   spark.sql("select a.regionid, b.regionname, a.product, a.yearweek, a.qty " +
     "from selloutTable a " +
     "left join selloutTable1 b " +
     "on a.regionid = b.regionid")
 
-  //inner join      없는 데이터를 버리고 묶기
+  //inner join      키가 있는 데이터만 조인
   spark.sql("select a.regionid, b.regionname, a.product, a.yearweek, a.qty " +
     "from selloutTable a " +
     "inner join selloutTable1 b " +
